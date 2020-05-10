@@ -1,15 +1,14 @@
 <?php
 
-
 /**
  * Plugin Name:     WooCommerce Payment Gateway WhatsApp
- * Plugin URI:      https://wordpress.org/plugins/woocommerce-simple-payment-gateway-WhatsApp/
+ * Plugin URI:      https://labs.megacreativo.com/wordpress/woocommerce-payment-gateway-whatsapp
  * Description:     A WooCommerce Extension that adds payment gateway "Payment Gateway WhatsApp"
  * Author URI:      http://megacreativo.com
  * License:         MIT
  * 
- * @author      Mega Creativo
- * @version     1.0.0
+ * @author      Mega Creativo <brayan262@gmail.com>
+ * @version     1.0.1
  * @class       WC_Payment_Gateway_WhatsApp
  * @extends     WC_Payment_Gateway
  */
@@ -24,7 +23,6 @@ function wc_pgws_init()
     if ( ! defined( 'ABSPATH' ) ) {
         exit;
     }        
-
 
     if( ! class_exists( 'WC_Payment_Gateway_WhatsApp' ) ) :
     
@@ -47,8 +45,8 @@ function wc_pgws_init()
                 $this->instructions       = $this->get_option( 'instructions' );
                 $this->enable_for_methods = $this->get_option( 'enable_for_methods', [] );
 
-                add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-                add_action( 'woocommerce_thankyou_wcgpws', array( $this, 'thankyou' ) );
+                add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, [$this, 'process_admin_options'] );
+                add_action( 'woocommerce_thankyou_wcgpws', [$this, 'thankyou'] );
             }
 
 
@@ -225,10 +223,10 @@ function wc_pgws_init()
                 $order->reduce_order_stock();
                 WC()->cart->empty_cart();
 
-                $result = array(
+                $result = [
                     'result' => 'success',
-                    'redirect'  => 'http://api.whatsapp.com/send?phone=+00123456789&text='.$description
-                );
+                    'redirect'  => 'http://api.whatsapp.com/send?phone=+00123456789&text=' . $description
+                ];
 
                 return $result;
             }
