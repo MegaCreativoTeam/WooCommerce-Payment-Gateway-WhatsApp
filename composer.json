@@ -1,0 +1,22 @@
+{
+  "name": "megacreativo/WooCommerce-Payment-Gateway-WhatsApp",
+  "description": "A WooCommerce extension that adds a payment gateway for WhatsApp. At the end of the purchase a message is created with the data of the Order and the products of the same and it is sent through WhatsApp",
+  "keywords": ["payments gategay", "woocommerce", "wordpress", "mega creativo", "megacreativo"],
+  "type": "wordpress-plugin",
+  "homepage": "https://github.com/megacreativo/WooCommerce-Payment-Gateway-WhatsApp",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Brayan Rincon",
+      "homepage": "https://megacreativo.com/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/megacreativo/WooCommerce-Payment-Gateway-WhatsApp/issues",
+    "source": "https://github.com/megacreativo/WooCommerce-Payment-Gateway-WhatsApp"
+  },
+  "require": {
+    "php": ">=5.6"
+  }
+}
